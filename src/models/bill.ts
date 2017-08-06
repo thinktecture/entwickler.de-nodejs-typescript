@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Customer} from './customer';
 
 @Entity()
 export class Bill {
@@ -10,4 +11,7 @@ export class Bill {
 
     @Column()
     public sum: number;
+
+    @ManyToOne(type => Customer, customer => customer.bills)
+    public customer: Customer;
 }

@@ -1,5 +1,6 @@
 import {Connection, createConnection} from 'typeorm';
 import {Customer} from '../models/customer';
+import {Bill} from '../models/bill';
 
 export interface DatabaseConfiguration {
     type: 'postgres' | 'mysql' | 'mssql';
@@ -30,8 +31,11 @@ export class DatabaseProvider {
         const { type, host, port, username, password, database } = DatabaseProvider.configuration;
         DatabaseProvider.connection = await createConnection({
             type, host, port, username, password, database,
-            entities: [Customer],
-            autoSchemaSync: false
+            entities: [
+                Customer,
+                Bill
+            ],
+            autoSchemaSync: true
         } as any); // as any to prevent complaining about the object does not fit to MongoConfiguration, which we won't use here
 
         return DatabaseProvider.connection;

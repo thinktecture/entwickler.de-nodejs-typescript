@@ -30,6 +30,12 @@ export class CustomerController implements Controller {
     }
 
     private async remove(req: Request, res: Response): Promise<void> {
-        res.send(await customerService.delete(req.params.id));
+        try {
+            await customerService.delete(req.params.id);
+            res.send(200);
+        }
+        catch (e) {
+            res.send(500);
+        }
     }
 }
