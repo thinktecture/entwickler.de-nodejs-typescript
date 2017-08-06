@@ -1,0 +1,29 @@
+{
+  "name": "entwickler.de-nodejs-typescript",
+  "version": "1.0.0",
+  "description": "Sample for the Entwickler.de Magazine article 'Node.js with TypeScript' for Web APIs.",
+  "keywords": [
+    "typeorm",
+    "webapi",
+    "api",
+    "web",
+    "web api",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "rimraf build && tsc",
+    "start": "nodemon --exec ts-node src/index.ts"
+  },
+  "author": "Manuel Rauber <manuel.rauber@thinktecture.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@types/restify": "^5.0.1",
+    "nodemon": "^1.11.0",
+    "pg": "^7.1.0",
+    "reflect-metadata": "^0.1.10",
+    "restify": "^5.0.1",
+    "ts-node": "^3.3.0",
+    "typeorm": "0.1.0-alpha.33",
+    "typescript": "^2.4.2"
+  }
+}
